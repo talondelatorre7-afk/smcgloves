@@ -70,9 +70,6 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addTemplateFormats("css");
     eleventyConfig.addExtension("css", configCss);
 
-    eleventyConfig.addTemplateFormats("js");
-    eleventyConfig.addExtension("js", configJs);
-
     return {
         dir: {
             input: "src",
