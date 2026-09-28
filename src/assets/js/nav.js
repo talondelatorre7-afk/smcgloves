@@ -22,3 +22,15 @@ function ariaExpanded() {
         csUL.setAttribute("aria-expanded", "false");
     }
 }
+
+// mobile nav dropdown code
+const dropDowns = Array.from(document.querySelectorAll('#cs-navigation .cs-dropdown'));
+for (const item of dropDowns) {
+    const toggle = item.querySelector('.cs-li-link');
+    toggle.addEventListener('click', (e) => {
+        // Prevent default action so clicking the text doesn't jump the page
+        e.preventDefault();
+        // Toggle the active class to open/close the dropdown
+        item.classList.toggle('cs-active');
+    });
+}

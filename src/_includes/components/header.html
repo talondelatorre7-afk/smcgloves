@@ -3,99 +3,151 @@
 <!-- ============================================ -->
 
 <header id="cs-navigation">
-    <div class="cs-top-bar">
+    <style>
+        /* ========================================== */
+        /* --- EASY LOGO SIZE ADJUSTMENTS (HEADER)--- */
+        /* ========================================== */
+        
+        /* 1. Desktop Header Logo */
+        #cs-navigation .cs-desktop-logo img {
+            height: 70px; /* Change this number to adjust desktop logo size */
+            width: auto;
+        }
+
+        /* 2. Mobile Header Logo */
+        #cs-navigation .cs-mobile-logo img {
+            height: 55px; /* Change this number to adjust mobile logo size */
+            width: auto;
+        }
+
+        /* Desktop Layout Fixes */
+        @media only screen and (min-width: 64rem) {
+            #cs-navigation .cs-mobile-logo { display: none !important; }
+            #cs-navigation .cs-nav { margin-left: auto !important; }
+        }
+        
+        /* Mobile Layout & Dropdown Fixes */
+        @media only screen and (max-width: 63.9375rem) {
+            #cs-navigation .cs-drop-ul { 
+                height: 0 !important; margin: 0 !important; padding: 0 !important; 
+                opacity: 0 !important; visibility: hidden !important; transition: all 0.3s ease; 
+            }
+            #cs-navigation .cs-dropdown.cs-active .cs-drop-ul { 
+                height: auto !important; margin: 12px 0 0 0 !important; 
+                padding: 12px 0 !important; opacity: 1 !important; visibility: visible !important; 
+            }
+            #cs-navigation .cs-container {
+                display: flex !important; justify-content: space-between !important; align-items: center !important;
+            }
+            #cs-navigation .cs-mobile-logo { margin: 0 auto 0 0 !important; }
+            #cs-navigation .cs-toggle { margin: 0 0 0 auto !important; }
+        }
+    </style>
+
+    <div class="cs-top-bar" style="background-color: var(--secondary);">
         <div class="cs-top-container">
-            <!--Nav Logo-->
-            <a href="" class="cs-logo" aria-label="back to home">
-                <img src="https://codestitch-intermediate.netlify.app/assets/svgs/logo-black.svg" alt="logo" width="197" height="43" aria-hidden="true" decoding="async">
+            <!-- Desktop Logo -->
+            <a href="/" class="cs-logo cs-desktop-logo" aria-label="back to home">
+                <img src="/assets/images/SMC3.png" alt="SMC Gloves Logo">
             </a>
             <div class="cs-contact-group">
-                <a class="cs-contact-link" href="mailto:{{ client.email }}">
+                <a class="cs-contact-link" href="mailto:Inquiry@smcgloves.com">
                     <picture class="cs-wrapper">
-                        <img class="cs-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/yellow-mail.svg" alt="icon" width="24" height="24">
+                        <img class="cs-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/yellow-mail.svg" alt="icon" width="24" height="24" style="filter: brightness(0) invert(1);">
                     </picture>
                     <div class="cs-info">
-                        <span class="cs-header">Found a bug?</span>
-                        <span class="cs-link-content">Email us!</span>
+                        <span class="cs-header" style="color:#e0e5e2;">Email Us</span>
+                        <span class="cs-link-content" style="color:#fff;">Inquiry@smcgloves.com</span>
                     </div>
                 </a>
-                <a class="cs-contact-link" href="https://www.codestitch.app/" target="_blank">
+                <a class="cs-contact-link" href="tel:909-591-8855">
                     <picture class="cs-wrapper">
-                        <img class="cs-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/yellow-pin.svg" alt="icon" width="24" height="24">
+                        <img class="cs-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/phone-76.svg" alt="icon" width="24" height="24" style="filter: brightness(0) invert(1);">
                     </picture>
                     <div class="cs-info">
-                        <span class="cs-header">Want more sections?</span>
-                        <span class="cs-link-content">Visit CodeStitch!</span>
+                        <span class="cs-header" style="color:#e0e5e2;">Call Today</span>
+                        <span class="cs-link-content" style="color:#fff;">909-591-8855</span>
                     </div>
                 </a>
-                <a href="" class="cs-button-solid">Priority CTA</a>
+                <a href="/contact" class="cs-button-solid">Request Samples</a>
             </div>
-            <!--Dark Mode toggle, uncomment button code if you want to enable a dark mode toggle-->
+            
             <button id="dark-mode-toggle" aria-label="dark mode toggle">
                 <svg class="cs-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480" xml:space="preserve">
-                    <path d="M459.782 347.328c-4.288-5.28-11.488-7.232-17.824-4.96-17.76 6.368-37.024 9.632-57.312 9.632-97.056 0-176-78.976-176-176 0-58.4 28.832-112.768 77.12-145.472 5.472-3.712 8.096-10.4 6.624-16.832S285.638 2.4 279.078 1.44C271.59.352 264.134 0 256.646 0c-132.352 0-240 107.648-240 240s107.648 240 240 240c84 0 160.416-42.688 204.352-114.176 3.552-5.792 3.04-13.184-1.216-18.496z"/>
+                    <path d="M459.782 347.328c-4.288-5.28-11.488-7.232-17.824-4.96-17.76 6.368-37.024 9.632-57.312 9.632-97.056 0-176-78.976-176-176 0-58.4 28.832-112.768 77.12-145.472 5.472-3.712 8.096-10.4 6.624-16.832S285.638 2.4 279.078 1.44C271.59.352 264.134 0 256.646 0c-132.352 0-240 107.648-240 240s107.648 240 240 240c84 0 160.416-42.688 204.352-114.176 3.552-5.792 3.04-13.184-1.216-18.496z" fill="#fff"/>
                 </svg>
                 <img class="cs-sun" aria-hidden="true" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fsun.svg" decoding="async" alt="moon" width="15" height="15">
             </button>
         </div>
     </div>
-    <!--Wrapped the bottom container in a wrapper div so we can have a full width background color, and centered the container inside of it-->
-    <div class="cs-bottom-bar">
+    
+    <div class="cs-bottom-bar" style="background-color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
         <div class="cs-container">
-            <!--Navigation List-->
+            
+            <!-- Mobile Logo -->
+            <a href="/" class="cs-logo cs-mobile-logo" aria-label="back to home" style="text-decoration: none;">
+                <img src="/assets/images/SMC4.png" alt="SMC Gloves Logo">
+            </a>
+
             <nav class="cs-nav" role="navigation">
-                <!--Mobile Nav Toggle-->
                 <button class="cs-toggle" aria-label="mobile menu toggle">
                     <div class="cs-box" aria-hidden="true">
-                        <span class="cs-line cs-line1" aria-hidden="true"></span>
-                        <span class="cs-line cs-line2" aria-hidden="true"></span>
-                        <span class="cs-line cs-line3" aria-hidden="true"></span>
+                        <span class="cs-line cs-line1" aria-hidden="true" style="background-color: var(--secondary);"></span>
+                        <span class="cs-line cs-line2" aria-hidden="true" style="background-color: var(--secondary);"></span>
+                        <span class="cs-line cs-line3" aria-hidden="true" style="background-color: var(--secondary);"></span>
                     </div>
                 </button>
-                <!-- All CodeStitch navigations use the same HTML within the cs-ul-wrapper.
-                 This one has been built with eleventyNavigation in mind, so you don't need to manually set active link styles or adjust HTML whenever a new page is added.
-                 Should you wish to use this way of working, just replace the .cs-ul-wrapper in the new navigation with the one below-->
                 <div class="cs-ul-wrapper">
                     <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+                        
+                        <!-- Standard Auto-Generated Links -->
                         {% set navPages = collections.all | eleventyNavigation %}
-                        {# Loop through all pages with a eleventyNavigation in the frontmatter #}
                         {% for entry in navPages %}
-                            {# Define a hasChild variable to make it easier to test what links are dropdowns#}
-                            {% set hasChild = entry.children.length %}
-
-                            {# If this page is a dropdown, give it the appropriate classes, icons and accessibility attributes#}
-                            <li class="cs-li {% if hasChild %} cs-dropdown {% endif %}" {% if hasChild %} tabindex="0"{% endif %}>
-
-                                {# Similarly, if the link is active, apply the necessary classes #}
+                            {% if entry.key != 'Shop' %}
+                            <li class="cs-li">
                                 <a href="{{ entry.url }}" class="cs-li-link {% if entry.url == page.url %} cs-active {% endif %}">
                                     {{ entry.key }}
-                                    {% if hasChild %}
-                                        <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
-                                    {% endif %}
                                 </a>
-
-                                {# Dropdowns have another ul/li set up within the parent li. Render in the same way as a normal link #}
-                                {% if hasChild %}
-                                    <ul class="cs-drop-ul">
-                                        {% for child in entry.children %}
-                                            <li class="cs-drop-li">
-                                                <a href="{{ child.url }}" class="cs-li-link cs-drop-link">{{ child.key }}</a>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                {% endif %}
                             </li>
+                            {% endif %}
                         {% endfor %}
+
+                        <!-- Custom Hardcoded Shop Dropdown -->
+                        <li class="cs-li cs-dropdown" tabindex="0">
+                            <span class="cs-li-link" style="cursor: pointer;">
+                                Shop
+                                <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
+                            </span>
+                            <ul class="cs-drop-ul" style="min-width: 260px; padding: 1rem 0;">
+                                <!-- Materials -->
+                                <li class="cs-drop-li"><strong style="padding: 0 16px; color: var(--primary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">Materials</strong></li>
+                                <li class="cs-drop-li"><a href="/shop/latex" class="cs-li-link cs-drop-link">Latex Gloves</a></li>
+                                <li class="cs-drop-li"><a href="/shop/nitrile" class="cs-li-link cs-drop-link">Nitrile Gloves</a></li>
+                                <li class="cs-drop-li"><a href="/shop/vinyl" class="cs-li-link cs-drop-link">Vinyl Gloves</a></li>
+
+                                <!-- Grade -->
+                                <li class="cs-drop-li" style="margin-top: 16px;"><strong style="padding: 0 16px; color: var(--primary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">Grade</strong></li>
+                                <li class="cs-drop-li"><a href="/shop/exam" class="cs-li-link cs-drop-link">Exam Grade</a></li>
+                                <li class="cs-drop-li"><a href="/shop/industrial" class="cs-li-link cs-drop-link">Industrial Grade</a></li>
+
+                                <!-- Brands -->
+                                <li class="cs-drop-li" style="margin-top: 16px;"><strong style="padding: 0 16px; color: var(--primary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">Brands</strong></li>
+                                <li class="cs-drop-li"><a href="/shop/action" class="cs-li-link cs-drop-link">Action</a></li>
+                                <li class="cs-drop-li"><a href="/shop/shamrock" class="cs-li-link cs-drop-link">Shamrock</a></li>
+                                <li class="cs-drop-li"><a href="/shop/polysilk" class="cs-li-link cs-drop-link">Polysilk</a></li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </div>
             </nav>
-            <a class="cs-call" href="https://www.reddit.com/r/codestitch" target="_blank">
+            <a class="cs-call" href="/contact">
                 <picture class="cs-wrapper">
-                    <img class="cs-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/adv-kit-reddit.svg" alt="icon" width="24" height="24">
+                    <img class="cs-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/yellow-pin.svg" alt="icon" width="24" height="24" style="filter: brightness(0) invert(1);">
                 </picture>
                 <div class="cs-info">
-                    <span class="cs-header">Need help?</span>
-                    <span class="cs-link-content">Visit our subreddit!</span>
+                    <span class="cs-header" style="color: var(--bodyTextColor);">Headquarters</span>
+                    <span class="cs-link-content" style="color: var(--secondary);">Chino, CA</span>
                 </div>
             </a>
         </div>

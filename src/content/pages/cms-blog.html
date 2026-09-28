@@ -4,9 +4,9 @@ description: "The classic CodeStitch blog, controlled by Decap CMS. Lists all bl
 permalink: 'blog/'
 eleventyNavigation:
     key: 'Blog'
-    order: '100'
-    parent: 'CMS'
+    order: '300'
 ---
+
 {% extends "layouts/base.html" %}
 
 {% block head %}
@@ -67,7 +67,7 @@ eleventyNavigation:
                                 <span class="blog-author">{{ post.data.author }}</span>
                                 <span aria-hidden="true" class="blog-dot"></span>
                                 <!--Blog Date-->
-                                <span class="blog-date">{{ post.date | formatDate }}</span>
+                                <span class="blog-date">{{ post.date  }}</span>
                             </div>
                             <h2 class="blog-h1">
                                 {{ post.data.title }}
